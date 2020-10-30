@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ladybug_pandas.extension_types.arraytype module &#8212; ladybug-pandas  documentation</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ladybug_pandas.extension_types.dtype module" href="ladybug_pandas.extension_types.dtype.html" />
+    <link rel="prev" title="ladybug_pandas.extension_types package" href="ladybug_pandas.extension_types.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          ladybug-pandas</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_pandas.html">ladybug_pandas package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_pandas.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_pandas.accessors.html">ladybug_pandas.accessors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_pandas.accessors.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_pandas.accessors.ladybug.html">ladybug_pandas.accessors.ladybug module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_pandas.accessors.psychrometrics.html">ladybug_pandas.accessors.psychrometrics module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_pandas.accessors.html#module-ladybug_pandas.accessors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_pandas.extension_types.html">ladybug_pandas.extension_types package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_pandas.extension_types.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_pandas.extension_types.arraytype module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_pandas.extension_types.dtype.html">ladybug_pandas.extension_types.dtype module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_pandas.extension_types.html#module-ladybug_pandas.extension_types">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_pandas.dataframe.html">ladybug_pandas.dataframe module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ladybug_pandas.series.html">ladybug_pandas.series module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#module-ladybug_pandas">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_pandas.html">ladybug_pandas package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_pandas.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_pandas.accessors.html">ladybug_pandas.accessors package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_pandas.extension_types.html">ladybug_pandas.extension_types package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_pandas.extension_types.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_pandas.extension_types.arraytype module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_pandas.extension_types.dtype.html">ladybug_pandas.extension_types.dtype module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_pandas.extension_types.html#module-ladybug_pandas.extension_types">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#module-ladybug_pandas">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ladybug_pandas.extension_types.html" title="Previous Chapter: ladybug_pandas.extension_types package"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; ladybug_panda...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ladybug_pandas.extension_types.dtype.html" title="Next Chapter: ladybug_pandas.extension_types.dtype module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ladybug_panda... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/ladybug_pandas.extension_types.arraytype.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ladybug_pandas.html">ladybug_pandas package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ladybug_pandas.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ladybug_pandas.accessors.html">ladybug_pandas.accessors package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ladybug_pandas.extension_types.html">ladybug_pandas.extension_types package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="ladybug_pandas.extension_types.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">ladybug_pandas.extension_types.arraytype module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ladybug_pandas.extension_types.dtype.html">ladybug_pandas.extension_types.dtype module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="ladybug_pandas.extension_types.html#module-ladybug_pandas.extension_types">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ladybug_pandas.html#module-ladybug_pandas">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <div class="section" id="module-ladybug_pandas.extension_types.arraytype">
+<span id="ladybug-pandas-extension-types-arraytype-module"></span><h1>ladybug_pandas.extension_types.arraytype module<a class="headerlink" href="#module-ladybug_pandas.extension_types.arraytype" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType">
+<em class="property">class </em><code class="sig-prename descclassname">ladybug_pandas.extension_types.arraytype.</code><code class="sig-name descname">LadybugArrayType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">values</span></em>, <em class="sig-param"><span class="n">dtype</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">copy</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.arrays.base.ExtensionArray</span></code>, <a class="reference internal" href="#ladybug_pandas.extension_types.arraytype.LadybugExtensionScalarOpsMixin" title="ladybug_pandas.extension_types.arraytype.LadybugExtensionScalarOpsMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ladybug_pandas.extension_types.arraytype.LadybugExtensionScalarOpsMixin</span></code></a></p>
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.argsort">
+<code class="sig-name descname">argsort</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ascending</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">kind</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'quicksort'</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.argsort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the indices that would sort this array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ascending</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether the indices should result in an ascending
+or descending sort.</p></li>
+<li><p><strong>kind</strong> (<em>{'quicksort'</em><em>, </em><em>'mergesort'</em><em>, </em><em>'heapsort'}</em><em>, </em><em>optional</em>) – Sorting algorithm.</p></li>
+<li><p><strong>*args</strong> – passed through to <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.argsort()</span></code>.</p></li>
+<li><p><strong>**kwargs</strong> – passed through to <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.argsort()</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of indices that sort <code class="docutils literal notranslate"><span class="pre">self</span></code>. If NaN values are contained,
+NaN values are placed at the end.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.argsort()</span></code></dt><dd><p>Sorting implementation used internally.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.astype">
+<code class="sig-name descname">astype</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dtype</span></em>, <em class="sig-param"><span class="n">copy</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.astype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.astype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast to a NumPy array with ‘dtype’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>dtype</em>) – Typecode or data-type to which the array is cast.</p></li>
+<li><p><strong>copy</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether to copy the data, even if not necessary. If False,
+a copy is made only if the old dtype does not match the
+new dtype.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>array</strong> – NumPy ndarray with ‘dtype’ for its dtype.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_ip">
+<code class="sig-name descname">convert_to_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.convert_to_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the Data Collection to IP units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_si">
+<code class="sig-name descname">convert_to_si</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.convert_to_si"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_si" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the Data Collection to SI units.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_unit">
+<code class="sig-name descname">convert_to_unit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.convert_to_unit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.convert_to_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the Data Collection to the input unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>{str} -- A unit string that exists for the data type</strong> (<em>unit</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; pandas.core.arrays.base.ExtensionArray<a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the array.
+:returns:
+:rtype: ExtensionArray</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.dropna">
+<code class="sig-name descname">dropna</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.dropna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return ExtensionArray without NA values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>valid</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ExtensionArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.factorize">
+<code class="sig-name descname">factorize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">na_sentinel</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">- 1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>numpy.ndarray<span class="p">, </span>pandas.core.dtypes.generic.ABCExtensionArray<span class="p">]</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.factorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode the extension array as an enumerated type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>na_sentinel</strong> (<em>int</em><em>, </em><em>default -1</em>) – Value to use in the <cite>codes</cite> array to indicate missing values.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul>
+<li><p><strong>codes</strong> (<em>ndarray</em>) – An integer NumPy array that’s an indexer into the original
+ExtensionArray.</p></li>
+<li><p><strong>uniques</strong> (<em>ExtensionArray</em>) – An ExtensionArray containing the unique values of <cite>self</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>uniques will <em>not</em> contain an entry for the NA value of
+the ExtensionArray if there are any missing values present
+in <cite>self</cite>.</p>
+</div>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.factorize" title="ladybug_pandas.extension_types.arraytype.LadybugArrayType.factorize"><code class="xref py py-meth docutils literal notranslate"><span class="pre">factorize()</span></code></a></dt><dd><p>Top-level factorize method that dispatches here.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.factorize()</span></code> offers a <cite>sort</cite> keyword as well.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.fillna">
+<code class="sig-name descname">fillna</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.fillna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill NA/NaN values using the specified method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>scalar</em><em>, </em><em>array-like</em>) – If a scalar value is passed it is used to fill all missing values.
+Alternatively, an array-like ‘value’ can be given. It’s expected
+that the array-like have the same length as ‘self’.</p></li>
+<li><p><strong>method</strong> (<em>{'backfill'</em><em>, </em><em>'bfill'</em><em>, </em><em>'pad'</em><em>, </em><em>'ffill'</em><em>, </em><em>None}</em><em>, </em><em>default None</em>) – Method to use for filling holes in reindexed Series
+pad / ffill: propagate last valid observation forward to next valid
+backfill / bfill: use NEXT valid observation to fill gap.</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>default None</em>) – If method is specified, this is the maximum number of consecutive
+NaN values to forward/backward fill. In other words, if there is
+a gap with more than this number of consecutive NaNs, it will only
+be partially filled. If method is not specified, this is the
+maximum number of entries along the entire axis where NaNs will be
+filled.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>With NA/NaN filled.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ExtensionArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.isna">
+<code class="sig-name descname">isna</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; ArrayLike<a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.isna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.isna" title="Permalink to this definition">¶</a></dt>
+<dd><p>A 1-D array indicating if each value is missing.
+:returns: <strong>na_values</strong> – In most cases, this should return a NumPy ndarray. For</p>
+<blockquote>
+<div><p>exceptional cases like <code class="docutils literal notranslate"><span class="pre">SparseArray</span></code>, where returning
+an ndarray would be expensive, an ExtensionArray may be
+returned.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[np.ndarray, ExtensionArray]</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If returning an ExtensionArray, then
+* <code class="docutils literal notranslate"><span class="pre">na_values._is_boolean</span></code> should be True
+* <cite>na_values</cite> should implement <code class="xref py py-func docutils literal notranslate"><span class="pre">ExtensionArray._reduce()</span></code>
+* <code class="docutils literal notranslate"><span class="pre">na_values.any</span></code> and <code class="docutils literal notranslate"><span class="pre">na_values.all</span></code> should be implemented</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.ravel">
+<code class="sig-name descname">ravel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">'C'</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.dtypes.generic.ABCExtensionArray<a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.ravel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a flattened view on this array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>order</strong> (<em>{None</em><em>, </em><em>'C'</em><em>, </em><em>'F'</em><em>, </em><em>'A'</em><em>, </em><em>'K'}</em><em>, </em><em>default 'C'</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ExtensionArray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Because ExtensionArrays are 1D-only, this is a no-op.</p></li>
+<li><p>The “order” argument is ignored, is for compatibility with NumPy.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.repeat">
+<code class="sig-name descname">repeat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repeats</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.repeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeat elements of a ExtensionArray.</p>
+<p>Returns a new ExtensionArray where each element of the current ExtensionArray
+is repeated consecutively a given number of times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repeats</strong> (<em>int</em><em> or </em><em>array of ints</em>) – The number of repetitions for each element. This should be a
+non-negative integer. Repeating 0 times will return an empty
+ExtensionArray.</p></li>
+<li><p><strong>axis</strong> (<em>None</em>) – Must be <code class="docutils literal notranslate"><span class="pre">None</span></code>. Has no effect but is accepted for compatibility
+with numpy.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>repeated_array</strong> – Newly created ExtensionArray with repeated elements.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ExtensionArray</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.repeat()</span></code></dt><dd><p>Equivalent function for Series.</p>
+</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">Index.repeat()</span></code></dt><dd><p>Equivalent function for Index.</p>
+</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.repeat()</span></code></dt><dd><p>Similar method for <code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExtensionArray.take()</span></code></dt><dd><p>Take arbitrary positions.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span>
+<span class="go">[a, b, c]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">[a, a, b, b, c, c]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cat</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="go">[a, b, b, c, c, c]</span>
+<span class="go">Categories (3, object): [a, b, c]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.searchsorted">
+<code class="sig-name descname">searchsorted</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">side</span><span class="o">=</span><span class="default_value">'left'</span></em>, <em class="sig-param"><span class="n">sorter</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.searchsorted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find indices where elements should be inserted to maintain order.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.24.0.</span></p>
+</div>
+<p>Find the indices into a sorted array <cite>self</cite> (a) such that, if the
+corresponding elements in <cite>value</cite> were inserted before the indices,
+the order of <cite>self</cite> would be preserved.</p>
+<p>Assuming that <cite>self</cite> is sorted:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><cite>side</cite></p></th>
+<th class="head"><p>returned index <cite>i</cite> satisfies</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>left</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">self[i-1]</span> <span class="pre">&lt;</span> <span class="pre">value</span> <span class="pre">&lt;=</span> <span class="pre">self[i]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>right</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">self[i-1]</span> <span class="pre">&lt;=</span> <span class="pre">value</span> <span class="pre">&lt;</span> <span class="pre">self[i]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>array_like</em>) – Values to insert into <cite>self</cite>.</p></li>
+<li><p><strong>side</strong> (<em>{'left'</em><em>, </em><em>'right'}</em><em>, </em><em>optional</em>) – If ‘left’, the index of the first suitable location found is given.
+If ‘right’, return the last such index.  If there is no suitable
+index, return either 0 or N (where N is the length of <cite>self</cite>).</p></li>
+<li><p><strong>sorter</strong> (<em>1-D array_like</em><em>, </em><em>optional</em>) – Optional array of integer indices that sort array a into ascending
+order. They are typically the result of argsort.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of insertion points with the same shape as <cite>value</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>array of ints</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.searchsorted()</span></code></dt><dd><p>Similar method from NumPy.</p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.shift">
+<code class="sig-name descname">shift</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">periods</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">fill_value</span><span class="p">:</span> <span class="n">object</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.dtypes.generic.ABCExtensionArray<a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shift values by desired number.</p>
+<p>Newly introduced missing values are filled with
+<code class="docutils literal notranslate"><span class="pre">self.dtype.na_value</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.24.0.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>periods</strong> (<em>int</em><em>, </em><em>default 1</em>) – The number of periods to shift. Negative values are allowed
+for shifting backwards.</p></li>
+<li><p><strong>fill_value</strong> (<em>object</em><em>, </em><em>optional</em>) – <p>The scalar value to use for newly introduced missing values.
+The default is <code class="docutils literal notranslate"><span class="pre">self.dtype.na_value</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.24.0.</span></p>
+</div>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Shifted.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ExtensionArray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is empty or <code class="docutils literal notranslate"><span class="pre">periods</span></code> is 0, a copy of <code class="docutils literal notranslate"><span class="pre">self</span></code> is
+returned.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">periods</span> <span class="pre">&gt;</span> <span class="pre">len(self)</span></code>, then an array of size
+len(self) is returned, with all values filled with
+<code class="docutils literal notranslate"><span class="pre">self.dtype.na_value</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.take">
+<code class="sig-name descname">take</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">indices</span><span class="p">:</span> <span class="n">Sequence<span class="p">[</span>int<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">allow_fill</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fill_value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.arrays.base.ExtensionArray<a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.take"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.take" title="Permalink to this definition">¶</a></dt>
+<dd><p>api.extensions.take
+.. rubric:: Notes</p>
+<p>ExtensionArray.take is called by <code class="docutils literal notranslate"><span class="pre">Series.__getitem__</span></code>, <code class="docutils literal notranslate"><span class="pre">.loc</span></code>,
+<code class="docutils literal notranslate"><span class="pre">iloc</span></code>, when <cite>indices</cite> is a sequence of values. Additionally,
+it’s called by <code class="xref py py-meth docutils literal notranslate"><span class="pre">Series.reindex()</span></code>, or any other method
+that causes realignment, with a <cite>fill_value</cite>.</p>
+<p class="rubric">Examples</p>
+<p>Here’s an example implementation, which relies on casting the
+extension array to object dtype. This uses the helper method
+<code class="xref py py-func docutils literal notranslate"><span class="pre">pandas.api.extensions.take()</span></code>.
+.. code-block:: python</p>
+<blockquote>
+<div><dl>
+<dt>def take(self, indices, allow_fill=False, fill_value=None):</dt><dd><p>from pandas.core.algorithms import take
+# If the ExtensionArray is backed by an ndarray, then
+# just pass that here instead of coercing to object.
+data = self.astype(object)
+if allow_fill and fill_value is None:</p>
+<blockquote>
+<div><p>fill_value = self.dtype.na_value</p>
+</div></blockquote>
+<p># fill value should always be translated from the scalar
+# type for the array, to the physical storage type for
+# the data, before passing to take.
+result = take(data, indices, fill_value=fill_value,</p>
+<blockquote>
+<div><p>allow_fill=allow_fill)</p>
+</div></blockquote>
+<p>return self._from_sequence(result, dtype=self.dtype)</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_ip">
+<code class="sig-name descname">to_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.to_ip"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Data Collection in IP units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>LadybugArrayType – A Ladybug Array converted to the desired unit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_numpy">
+<code class="sig-name descname">to_numpy</code><span class="sig-paren">(</span><em class="sig-param">dtype=None</em>, <em class="sig-param">copy=False</em>, <em class="sig-param">na_value=&lt;object object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_numpy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert to a NumPy ndarray.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 1.0.0.</span></p>
+</div>
+<p>This is similar to <code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.asarray()</span></code>, but may provide additional control
+over how the conversion is done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dtype</strong> (<em>str</em><em> or </em><em>numpy.dtype</em><em>, </em><em>optional</em>) – The dtype to pass to <code class="xref py py-meth docutils literal notranslate"><span class="pre">numpy.asarray()</span></code>.</p></li>
+<li><p><strong>copy</strong> (<em>bool</em><em>, </em><em>default False</em>) – Whether to ensure that the returned value is a not a view on
+another array. Note that <code class="docutils literal notranslate"><span class="pre">copy=False</span></code> does not <em>ensure</em> that
+<code class="docutils literal notranslate"><span class="pre">to_numpy()</span></code> is no-copy. Rather, <code class="docutils literal notranslate"><span class="pre">copy=True</span></code> ensure that
+a copy is made, even if not strictly necessary.</p></li>
+<li><p><strong>na_value</strong> (<em>Any</em><em>, </em><em>optional</em>) – The value to use for missing values. The default value depends
+on <cite>dtype</cite> and the type of the array.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_si">
+<code class="sig-name descname">to_si</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.to_si"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_si" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Data Collection in SI units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>LadybugArrayType – A Ladybug Array converted to the desired unit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_unit">
+<code class="sig-name descname">to_unit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.to_unit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.to_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Data Collection in the input unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>{str} -- A unit string that exists for the data type</strong> (<em>unit</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>LadybugArrayType – A Ladybug Array converted to the desired unit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.unique">
+<code class="sig-name descname">unique</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the ExtensionArray of unique values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>uniques</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ExtensionArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.value_counts">
+<code class="sig-name descname">value_counts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dropna</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.value_counts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.value_counts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Series containing counts of unique values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dropna</strong> (<em>bool</em><em>, </em><em>default True</em>) – Don’t include counts of NaT values.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="ladybug_pandas.series.html#ladybug_pandas.series.Series" title="ladybug_pandas.series.Series">Series</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.view">
+<code class="sig-name descname">view</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dtype</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>pandas.core.dtypes.generic.ABCExtensionArray<span class="p">, </span>numpy.ndarray<span class="p">]</span><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugArrayType.view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.view" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a view on the array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dtype</strong> (<em>str</em><em>, </em><em>np.dtype</em><em>, or </em><em>ExtensionDtype</em><em>, </em><em>optional</em>) – Default None.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A view of the <code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensionArray</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ExtensionArray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.dtype">
+<em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of ‘ExtensionDtype’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.nbytes">
+<em class="property">property </em><code class="sig-name descname">nbytes</code><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.nbytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of bytes needed to store this object in memory.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.ndim">
+<em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.ndim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extension Arrays are only allowed to be 1-dimensional.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.shape">
+<em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tuple of the array dimensions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugArrayType.size">
+<em class="property">property </em><code class="sig-name descname">size</code><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugArrayType.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of elements in the array.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ladybug_pandas.extension_types.arraytype.LadybugExtensionScalarOpsMixin">
+<em class="property">class </em><code class="sig-prename descclassname">ladybug_pandas.extension_types.arraytype.</code><code class="sig-name descname">LadybugExtensionScalarOpsMixin</code><a class="reference internal" href="_modules/ladybug_pandas/extension_types/arraytype.html#LadybugExtensionScalarOpsMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ladybug_pandas.extension_types.arraytype.LadybugExtensionScalarOpsMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.arrays.base.ExtensionScalarOpsMixin</span></code></p>
+<p>A mixin for defining  ops on an ExtensionArray.</p>
+<p>It is assumed that the underlying scalar objects have the operators
+already defined.</p>
+<p class="rubric">Notes</p>
+<p>If you have defined a subclass MyExtensionArray(ExtensionArray), then
+use MyExtensionArray(ExtensionArray, ExtensionScalarOpsMixin) to
+get the arithmetic operators.  After the definition of MyExtensionArray,
+insert the lines</p>
+<p>MyExtensionArray._add_arithmetic_ops()
+MyExtensionArray._add_comparison_ops()</p>
+<p>to link the operators to your class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may want to set <code class="docutils literal notranslate"><span class="pre">__array_priority__</span></code> if you want your
+implementation to be called when involved in binary operations
+with NumPy arrays.</p>
+</div>
+</dd></dl>
+
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

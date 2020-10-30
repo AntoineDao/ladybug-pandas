@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pandas.core.dtypes.base &#8212; ladybug-pandas  documentation</title>
+    <link rel="stylesheet" href="../../../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../../index.html">
+          ladybug-pandas</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ladybug_pandas.html">ladybug_pandas package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ladybug_pandas.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ladybug_pandas.accessors.html">ladybug_pandas.accessors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../ladybug_pandas.accessors.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../ladybug_pandas.accessors.ladybug.html">ladybug_pandas.accessors.ladybug module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../ladybug_pandas.accessors.psychrometrics.html">ladybug_pandas.accessors.psychrometrics module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../ladybug_pandas.accessors.html#module-ladybug_pandas.accessors">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ladybug_pandas.extension_types.html">ladybug_pandas.extension_types package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../ladybug_pandas.extension_types.html#submodules">Submodules</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../../ladybug_pandas.extension_types.arraytype.html">ladybug_pandas.extension_types.arraytype module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../../ladybug_pandas.extension_types.dtype.html">ladybug_pandas.extension_types.dtype module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../ladybug_pandas.extension_types.html#module-ladybug_pandas.extension_types">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ladybug_pandas.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ladybug_pandas.dataframe.html">ladybug_pandas.dataframe module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../ladybug_pandas.series.html">ladybug_pandas.series module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../ladybug_pandas.html#module-ladybug_pandas">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ladybug_pandas.html">ladybug_pandas package</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../ladybug_pandas.html">ladybug_pandas package</a></li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <h1>Source code for pandas.core.dtypes.base</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Extend pandas with custom array types&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">pandas.errors</span> <span class="kn">import</span> <span class="n">AbstractMethodError</span>
+
+<span class="kn">from</span> <span class="nn">pandas.core.dtypes.generic</span> <span class="kn">import</span> <span class="n">ABCDataFrame</span><span class="p">,</span> <span class="n">ABCIndexClass</span><span class="p">,</span> <span class="n">ABCSeries</span>
+
+
+<span class="k">class</span> <span class="nc">ExtensionDtype</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A custom data type, to be paired with an ExtensionArray.</span>
+
+<span class="sd">    .. versionadded:: 0.23.0</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    extensions.register_extension_dtype</span>
+<span class="sd">    extensions.ExtensionArray</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The interface includes the following abstract methods that must</span>
+<span class="sd">    be implemented by subclasses:</span>
+
+<span class="sd">    * type</span>
+<span class="sd">    * name</span>
+<span class="sd">    * construct_from_string</span>
+
+<span class="sd">    The following attributes influence the behavior of the dtype in</span>
+<span class="sd">    pandas operations</span>
+
+<span class="sd">    * _is_numeric</span>
+<span class="sd">    * _is_boolean</span>
+
+<span class="sd">    Optionally one can override construct_array_type for construction</span>
+<span class="sd">    with the name of this dtype via the Registry. See</span>
+<span class="sd">    :meth:`extensions.register_extension_dtype`.</span>
+
+<span class="sd">    * construct_array_type</span>
+
+<span class="sd">    The `na_value` class attribute can be used to set the default NA value</span>
+<span class="sd">    for this type. :attr:`numpy.nan` is used by default.</span>
+
+<span class="sd">    ExtensionDtypes are required to be hashable. The base class provides</span>
+<span class="sd">    a default implementation, which relies on the ``_metadata`` class</span>
+<span class="sd">    attribute. ``_metadata`` should be a tuple containing the strings</span>
+<span class="sd">    that define your data type. For example, with ``PeriodDtype`` that&#39;s</span>
+<span class="sd">    the ``freq`` attribute.</span>
+
+<span class="sd">    **If you have a parametrized dtype you should set the ``_metadata``</span>
+<span class="sd">    class property**.</span>
+
+<span class="sd">    Ideally, the attributes in ``_metadata`` will match the</span>
+<span class="sd">    parameters to your ``ExtensionDtype.__init__`` (if any). If any of</span>
+<span class="sd">    the attributes in ``_metadata`` don&#39;t implement the standard</span>
+<span class="sd">    ``__eq__`` or ``__hash__``, the default implementations here will not</span>
+<span class="sd">    work.</span>
+
+<span class="sd">    .. versionchanged:: 0.24.0</span>
+
+<span class="sd">       Added ``_metadata``, ``__hash__``, and changed the default definition</span>
+<span class="sd">       of ``__eq__``.</span>
+
+<span class="sd">    For interaction with Apache Arrow (pyarrow), a ``__from_arrow__`` method</span>
+<span class="sd">    can be implemented: this method receives a pyarrow Array or ChunkedArray</span>
+<span class="sd">    as only argument and is expected to return the appropriate pandas</span>
+<span class="sd">    ExtensionArray for this dtype and the passed values::</span>
+
+<span class="sd">        class ExtensionDtype:</span>
+
+<span class="sd">            def __from_arrow__(</span>
+<span class="sd">                self, array: pyarrow.Array/ChunkedArray</span>
+<span class="sd">            ) -&gt; ExtensionArray:</span>
+<span class="sd">                ...</span>
+
+<span class="sd">    This class does not inherit from &#39;abc.ABCMeta&#39; for performance reasons.</span>
+<span class="sd">    Methods and properties required by the interface raise</span>
+<span class="sd">    ``pandas.errors.AbstractMethodError`` and no ``register`` method is</span>
+<span class="sd">    provided for registering virtual subclasses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_metadata</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check whether &#39;other&#39; is equal to self.</span>
+
+<span class="sd">        By default, &#39;other&#39; is considered equal if either</span>
+
+<span class="sd">        * it&#39;s a string matching &#39;self.name&#39;.</span>
+<span class="sd">        * it&#39;s an instance of this type and all of the</span>
+<span class="sd">          the attributes in ``self._metadata`` are equal between</span>
+<span class="sd">          `self` and `other`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other : Any</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">other</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">construct_from_string</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="o">==</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">na_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Default NA value to use for this type.</span>
+
+<span class="sd">        This is used in e.g. ExtensionArray.take. This should be the</span>
+<span class="sd">        user-facing &quot;boxed&quot; version of the NA value, not the physical NA value</span>
+<span class="sd">        for storage.  e.g. for JSONArray, this is an empty dictionary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Type</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The scalar type for the array, e.g. ``int``</span>
+
+<span class="sd">        It&#39;s expected ``ExtensionArray[item]`` returns an instance</span>
+<span class="sd">        of ``ExtensionDtype.type`` for scalar ``item``, assuming</span>
+<span class="sd">        that value is valid (not NA). NA values do not need to be</span>
+<span class="sd">        instances of `type`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="n">AbstractMethodError</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">kind</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A character code (one of &#39;biufcmMOSUV&#39;), default &#39;O&#39;</span>
+
+<span class="sd">        This should match the NumPy dtype used when the array is</span>
+<span class="sd">        converted to an ndarray, which is probably &#39;O&#39; for object if</span>
+<span class="sd">        the extension type cannot be represented as a built-in NumPy</span>
+<span class="sd">        type.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        numpy.dtype.kind</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;O&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A string identifying the data type.</span>
+
+<span class="sd">        Will be used for display in, e.g. ``Series.dtype``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="n">AbstractMethodError</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Ordered list of field names, or None if there are no fields.</span>
+
+<span class="sd">        This is for compatibility with NumPy arrays, and may be removed in the</span>
+<span class="sd">        future.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">construct_array_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the array type associated with this dtype.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">construct_from_string</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct this type from a string.</span>
+
+<span class="sd">        This is useful mainly for data types that accept parameters.</span>
+<span class="sd">        For example, a period dtype accepts a frequency parameter that</span>
+<span class="sd">        can be set as ``period[H]`` (where H means hourly frequency).</span>
+
+<span class="sd">        By default, in the abstract class, just the name of the type is</span>
+<span class="sd">        expected. But subclasses can overwrite this method to accept</span>
+<span class="sd">        parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        string : str</span>
+<span class="sd">            The name of the type, for example ``category``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ExtensionDtype</span>
+<span class="sd">            Instance of the dtype.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If a class cannot be constructed from this &#39;string&#39;.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        For extension dtypes with arguments the following may be an</span>
+<span class="sd">        adequate implementation.</span>
+
+<span class="sd">        &gt;&gt;&gt; @classmethod</span>
+<span class="sd">        ... def construct_from_string(cls, string):</span>
+<span class="sd">        ...     pattern = re.compile(r&quot;^my_type\[(?P&lt;arg_name&gt;.+)\]$&quot;)</span>
+<span class="sd">        ...     match = pattern.match(string)</span>
+<span class="sd">        ...     if match:</span>
+<span class="sd">        ...         return cls(**match.groupdict())</span>
+<span class="sd">        ...     else:</span>
+<span class="sd">        ...         raise TypeError(f&quot;Cannot construct a &#39;{cls.__name__}&#39; from</span>
+<span class="sd">        ...             &quot; &quot;&#39;{string}&#39;&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expects a string, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># error: Non-overlapping equality check (left operand type: &quot;str&quot;, right</span>
+        <span class="c1">#  operand type: &quot;Callable[[ExtensionDtype], str]&quot;)  [comparison-overlap]</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span> <span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">string</span> <span class="o">!=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot construct a &#39;</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; from &#39;</span><span class="si">{</span><span class="n">string</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">()</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">is_dtype</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if we match &#39;dtype&#39;.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dtype : object</span>
+<span class="sd">            The object to check.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_dtype : bool</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        The default implementation is True if</span>
+
+<span class="sd">        1. ``cls.construct_from_string(dtype)`` is an instance</span>
+<span class="sd">           of ``cls``.</span>
+<span class="sd">        2. ``dtype`` is an object and is an instance of ``cls``</span>
+<span class="sd">        3. ``dtype`` has a ``dtype`` attribute, and any of the above</span>
+<span class="sd">           conditions is true for ``dtype.dtype``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="p">(</span><span class="n">ABCSeries</span><span class="p">,</span> <span class="n">ABCIndexClass</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">)):</span>
+            <span class="c1"># https://github.com/pandas-dev/pandas/issues/22960</span>
+            <span class="c1"># avoid passing data to `construct_from_string`. This could</span>
+            <span class="c1"># cause a FutureWarning from numpy about failing elementwise</span>
+            <span class="c1"># comparison from, e.g., comparing DataFrame == &#39;category&#39;.</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">construct_from_string</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_is_numeric</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether columns with this dtype should be considered numeric.</span>
+
+<span class="sd">        By default ExtensionDtypes are assumed to be non-numeric.</span>
+<span class="sd">        They&#39;ll be excluded from operations that exclude non-numeric</span>
+<span class="sd">        columns, like (groupby) reductions, plotting, etc.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_is_boolean</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Whether this dtype should be considered boolean.</span>
+
+<span class="sd">        By default, ExtensionDtypes are assumed to be non-numeric.</span>
+<span class="sd">        Setting this to True will affect the behavior of several places,</span>
+<span class="sd">        e.g.</span>
+
+<span class="sd">        * is_bool</span>
+<span class="sd">        * boolean indexing</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2020, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
